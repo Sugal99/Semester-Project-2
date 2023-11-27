@@ -1,2 +1,14 @@
 @import "variables"; /* /src/scss/_variables.scss */
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-image: url("/images/1.png");
+    background-repeat: no-repeat;
+
+}
+.logo {
+    width: 13rem;
+    margin-left: -1.5rem;
+}
+
+
