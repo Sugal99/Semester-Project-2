@@ -9715,34 +9715,5 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-body {
-  background-image: url("/images/landingPageGradient.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.logo {
-  width: 13rem;
-  margin-left: -1.5rem;
-}
-
-.card img {
-  height: 8.5rem;
-  object-fit: cover;
-}
-
-.form-control {
-  width: 17vw;
-}
-
-@media (min-width: 1440px) {
-  .landingPageImage {
-    width: 35% !important;
-  }
-  .form-control {
-    width: 16vw !important;
-    margin-left: 0vw;
-  }
-}
-
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=test.css.map */

@@ -2,17 +2,31 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 body {
-    background-image: url("/images/landingPageGradient.png");
-    background-repeat: no-repeat;
-
+  background-image: url("/images/landingPageGradient.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .logo {
-    width: 13rem;
-    margin-left: -1.5rem;
+  width: 13rem;
+  margin-left: -1.5rem;
 }
 
-.landingPageImage {
-    width: 82vw;
+.card img {
+  height: 8.5rem;
+  object-fit: cover;
 }
 
+.form-control {
+  width: 17vw;
+}
 
+@media (min-width: 1440px) {
+  .landingPageImage {
+    width: 35% !important; // Adjust as needed
+  }
+
+  .form-control {
+    width: 16vw !important; // Adjust as needed
+    margin-left: 0vw;
+  }
+}
