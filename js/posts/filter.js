@@ -1,5 +1,4 @@
 const API_BASE_URL = "https://api.noroff.dev";
-
 let filteredData = []; // Store the fetched and filtered data
 
 async function fetchWithToken(url) {
@@ -21,7 +20,6 @@ async function fetchWithToken(url) {
     console.log(error);
   }
 }
-
 function createPostHTML(post) {
   const container = document.querySelector(".auctionContainer");
 
@@ -35,7 +33,12 @@ function createPostHTML(post) {
 
   // Check if post.media is not null and has at least one item
   if (post.media !== null && post.media.length > 0) {
-    const imgData = post.media[0]; // Assuming you want to use the first image in the array
+    const imgData = post.media[0];
+
+    // Create an anchor element for the card
+    const cardLink = document.createElement("a");
+    cardLink.href = `/spesificItemPage.html?id=${post.id}&seller=${post.seller.name}`;
+    cardLink.classList.add("card-link");
 
     // Create an image element
     const img = document.createElement("img");
@@ -45,16 +48,16 @@ function createPostHTML(post) {
 
     // Add error handling for the image
     img.addEventListener("error", function (event) {
-      // Prevent the default error behavior (logging to the console)
       event.preventDefault();
-
-      // Set a placeholder image source if the image fails to load
       img.src =
         "images/—Pngtree—bidding auction and placard competition_6696447.png";
     });
 
-    // Append the image to the card
-    card.appendChild(img);
+    // Append the image to the card link
+    cardLink.appendChild(img);
+
+    // Append the anchor element to the card
+    card.appendChild(cardLink);
   } else {
     // If post.media is null or empty, use a placeholder image
     const placeholderImg = document.createElement("img");
@@ -135,9 +138,24 @@ function createPostHTML(post) {
   // Append the card footer to the card
   card.appendChild(cardFooter);
 
+  // Add a click event listener to the card to handle navigation
+  card.addEventListener("click", function () {
+    // Redirect to the specific item page when the card is clicked
+    window.location.href = `/spesificItemPage.html?id=${post.id}`;
+  });
+
   // Append the card to the container
   col.appendChild(card);
   container.appendChild(col);
+
+  // Add event listeners to change cursor on hover
+  card.addEventListener("mouseover", function () {
+    card.style.cursor = "pointer";
+  });
+
+  card.addEventListener("mouseout", function () {
+    card.style.cursor = "auto";
+  });
 }
 
 function displayListings(json) {

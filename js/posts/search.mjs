@@ -113,9 +113,24 @@ function createPostHTML(post) {
   // Append the card footer to the card
   card.appendChild(cardFooter);
 
+  // Add a click event listener to the card to handle navigation
+  card.addEventListener("click", function () {
+    // Redirect to the specific item page when the card is clicked
+    window.location.href = `/spesificItemPage.html?id=${post.id}&seller=${post.seller}`;
+  });
+
   // Append the card to the container
   col.appendChild(card);
   container.appendChild(col);
+
+  // Add event listeners to change cursor on hover
+  card.addEventListener("mouseover", function () {
+    card.style.cursor = "pointer";
+  });
+
+  card.addEventListener("mouseout", function () {
+    card.style.cursor = "auto";
+  });
 }
 
 function createPostsHTML(json) {
