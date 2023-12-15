@@ -108,11 +108,11 @@ function createPostHTML(post) {
   // Create "Created" element
   const formattedCreatedDate = new Date(post.created).toLocaleDateString(
     "en-us",
-    { month: "short", day: "numeric" }
+    { month: "short", day: "numeric", timeZone: "UTC" }
   );
   const formattedCreatedTime = new Date(post.created).toLocaleTimeString(
     "en-GB",
-    { hour: "2-digit", minute: "2-digit" }
+    { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }
   );
   const cardCreated = document.createElement("p");
   cardCreated.innerText = `Created: ${formattedCreatedDate}, ${formattedCreatedTime}`;

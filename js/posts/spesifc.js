@@ -51,20 +51,100 @@ async function main() {
     );
     console.log(matchingListing);
 
+    const formattedCreatedDate = new Date(
+      matchingListing.created
+    ).toLocaleDateString("en-us", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+    const formattedCreatedTime = new Date(
+      matchingListing.created
+    ).toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "UTC",
+    });
+
+    const formattedDeadlineDate = new Date(
+      matchingListing.endsAt
+    ).toLocaleDateString("en-us", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+    const formattedDeadlineTime = new Date(
+      matchingListing.endsAt
+    ).toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "UTC",
+    });
+
     if (matchingListing) {
-      const sellerElement = document.getElementById("seller");
-      const sellerAvatarElement = document.getElementById(
-        "mini-avatar-placeholder"
-      );
+      const carouselInnerElement = document.getElementById("carouselInner");
+      const carouselIndicatorsElement =
+        document.getElementById("carouselIndicators");
 
-      const sellerName = matchingListing.seller.name;
-      const sellerAvatar = matchingListing.seller.avatar;
+      carouselInnerElement.innerHTML = "";
+      carouselIndicatorsElement.innerHTML = "";
 
-      sellerElement.innerHTML = `Seller: ${sellerName}`;
-      sellerAvatarElement.style.backgroundImage = `url(${sellerAvatar})`;
-      sellerAvatarElement.style.backgroundSize = "cover";
-      sellerAvatarElement.style.backgroundPosition = "center";
-      sellerAvatarElement.style.backgroundRepeat = "no-repeat";
+      const auctionImages = matchingListing.media;
+
+      if (auctionImages && auctionImages.length > 0) {
+        for (let index = 0; index < auctionImages.length; index++) {
+          const imageUrl = auctionImages[index];
+
+          // Create carousel item
+          const carouselItem = document.createElement("div");
+          carouselItem.className = `carousel-item${
+            index === 0 ? " active" : ""
+          }`;
+
+          // Create image element
+          const imageElement = document.createElement("img");
+          imageElement.src = imageUrl;
+          imageElement.className = "d-block w-100";
+
+          // Append image to carousel item
+          carouselItem.appendChild(imageElement);
+
+          // Create carousel indicator
+          const indicatorElement = document.createElement("button");
+          indicatorElement.type = "button";
+          indicatorElement.setAttribute("data-bs-target", "#demo");
+          indicatorElement.setAttribute("data-bs-slide-to", index.toString());
+          indicatorElement.className = index === 0 ? "active" : "";
+
+          // Append indicator to carousel indicators
+          carouselIndicatorsElement.appendChild(indicatorElement);
+
+          // Append carousel item to carousel inner
+          carouselInnerElement.appendChild(carouselItem);
+        }
+
+        const sellerElement = document.getElementById("seller");
+        const sellerAvatarElement = document.getElementById(
+          "mini-avatar-placeholder"
+        );
+        const auctionNameElement = document.getElementById("auctionTitle");
+        const auctionDescElement =
+          document.getElementById("auctionDescription");
+        const auctionCreatedElement = document.getElementById("auctionCreated");
+        const auctionEndsAtElement = document.getElementById("auctionEndsAt");
+
+        sellerElement.innerHTML = `Seller: ${matchingListing.seller.name}`;
+        sellerAvatarElement.style.backgroundImage = `url(${matchingListing.seller.avatar})`;
+        sellerAvatarElement.style.backgroundSize = "cover";
+        sellerAvatarElement.style.backgroundPosition = "center";
+        sellerAvatarElement.style.backgroundRepeat = "no-repeat";
+        auctionNameElement.innerHTML = `${matchingListing.title}`;
+        auctionDescElement.innerHTML = `"<i>${matchingListing.description}</i>"`;
+        auctionCreatedElement.innerHTML = ` Date added:  ${formattedCreatedDate}, ${formattedCreatedTime}`;
+        auctionEndsAtElement.innerHTML = ` Date added:  ${formattedDeadlineDate}, ${formattedDeadlineTime}`;
+      } else {
+        console.error("No images found in the auction listing");
+      }
     } else {
       console.error("Listing not found in the combined data");
     }
