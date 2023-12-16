@@ -104,7 +104,6 @@
   
 
           <!-- Current Bid -->
-          <h3 class="fs-5" id="currentBid">Current Bid: Loading...</h3>
           <hr />
 
           <!-- Registration Information -->
@@ -117,16 +116,19 @@
         </div>
           <!-- Place Bid Form -->
           <h5 class="fs-4">Place Bid</h5>
-          <div class="d-flex">
+          <div class="d-flex" id="bid-form">
             <input
               type="text"
               class="form-control w-50 mr-2"
               placeholder="Your Bid"
+              id="bid-amount"
             />
-            <button type="button" class="btn btn-primary ms-2">Bid</button>
+            <button type="button" id="bid-button"class=" btn btn-primary ms-2">Bid</button>
           </div>
         </div>
         <hr />
+
+        <div id="error-message"></div>
         <!-- Bid History -->
         <div class="mt-4">
           <h6 class="fs-5">Bid History:</h6>
@@ -177,6 +179,7 @@
       </div>
     </footer>
     <script src="/js/posts/spesifc.js"></script>
+
     
     
 

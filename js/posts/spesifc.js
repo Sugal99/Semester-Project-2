@@ -122,7 +122,6 @@ async function main() {
           // Append carousel item to carousel inner
           carouselInnerElement.appendChild(carouselItem);
         }
-        const currentBidElement = document.getElementById("currentBid");
 
         const sellerElement = document.getElementById("seller");
         const sellerAvatarElement = document.getElementById(
@@ -134,17 +133,6 @@ async function main() {
         const auctionCreatedElement = document.getElementById("auctionCreated");
         const auctionEndsAtElement = document.getElementById("auctionEndsAt");
 
-        // Assuming matchingListing.bids is an array of bid objects
-        const latestBid = matchingListing.bids[matchingListing.bids.length - 1];
-
-        // Check if there is at least one bid before updating the HTML
-        if (latestBid) {
-          currentBidElement.innerHTML = `Current Bid: ${latestBid.amount} kr`;
-        } else {
-          // Handle the case when there are no bids
-          currentBidElement.innerHTML = "No bids yet";
-        }
-
         sellerElement.innerHTML = `Seller: ${matchingListing.seller.name}`;
         sellerAvatarElement.style.backgroundImage = `url(${matchingListing.seller.avatar})`;
         sellerAvatarElement.style.backgroundSize = "cover";
@@ -152,8 +140,8 @@ async function main() {
         sellerAvatarElement.style.backgroundRepeat = "no-repeat";
         auctionNameElement.innerHTML = `${matchingListing.title}`;
         auctionDescElement.innerHTML = `"<i>${matchingListing.description}</i>"`;
-        auctionCreatedElement.innerHTML = ` Date added:  ${formattedCreatedDate}, ${formattedCreatedTime}`;
-        auctionEndsAtElement.innerHTML = ` Date added:  ${formattedDeadlineDate}, ${formattedDeadlineTime}`;
+        auctionCreatedElement.innerHTML = ` Date added: ${formattedCreatedDate}, ${formattedCreatedTime}`;
+        auctionEndsAtElement.innerHTML = ` Date added: ${formattedDeadlineDate}, ${formattedDeadlineTime}`;
 
         // Assuming you have a container element for the registration text
         const registrationContainer =
@@ -181,8 +169,8 @@ async function main() {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add an event listener to the "Bid" button
-  const bidButton = document.querySelector(".btn.btn-primary");
-  bidButton.addEventListener("click", () => {
+  const bidButton = document.getElementById("bid-button");
+  bidButton.addEventListener("click", async () => {
     const bidInput = document.querySelector(".form-control");
     const bidAmount = bidInput.value;
 
@@ -192,25 +180,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Item ID:", itemID); // Log itemID to check if it's obtained
 
-    handleBidSubmission(itemID);
-  });
-});
-
-async function handleBidSubmission(itemID) {
-  try {
-    const bidInput = document.querySelector(".form-control");
-    const bidAmount = bidInput.value;
-
-    // Check if bid amount is valid (you may want to add additional validation)
-    if (!bidAmount || isNaN(bidAmount)) {
-      alert("Please enter a valid bid amount");
-      return;
-    }
-
-    // Send a POST request to update the bid
+    // Construct the bid update URL
     const bidUpdateUrl = `${API_BASE_URL}/auction/listings/${itemID}/bids`;
-    const token = localStorage.getItem("accessToken");
 
+    // Prepare the request method
+    const token = localStorage.getItem("accessToken");
     const postData = {
       method: "POST",
       headers: {
@@ -218,22 +192,45 @@ async function handleBidSubmission(itemID) {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        amount: parseFloat(bidAmount), // Convert to a number
+        amount: parseFloat(bidAmount),
       }),
     };
 
-    // Perform the bid update
-    const response = await fetch(bidUpdateUrl, postData);
-    const json = await response.json();
-
-    // Optionally, you can update the UI or show a success message
-    alert("Bid placed successfully!");
+    // Call the sendBidToAPI function to send the bid
+    await sendBidToAPI(bidUpdateUrl, postData);
 
     // After placing the bid, re-fetch and update the current bid
     await main();
+  });
+});
+
+async function sendBidToAPI(url, method) {
+  try {
+    const response = await fetch(url, method);
+    const json = await response.json();
+
+    if (response.ok) {
+      const bidForm = document.querySelector("#bid-form");
+      const bidAmount = document.querySelector("#bid-amount");
+      bidForm.innerHTML = `
+      <h4>${bidAmount.value} Credits spent on this item:
+        <button type="button" class=" bid-button btn btn bg-primary ms-2 text-white" id="bid-higher-button" onclick="window.location.reload()"><strong>Higher?</strong></button></h4>
+      
+      
+        `;
+    } else {
+      const errorMessage = document.querySelector("#error-message");
+
+      // Check if errorMessage element exists before trying to modify its style
+      if (errorMessage) {
+        errorMessage.style.display = "block";
+        errorMessage.innerText = `${json.errors[0].message}`;
+      } else {
+        console.error("Error message element not found.");
+      }
+    }
   } catch (error) {
-    console.error("Error handling bid submission:", error);
-    alert("Error placing bid. Please try again.");
+    console.error("Error sending bid to API:", error);
   }
 }
 
