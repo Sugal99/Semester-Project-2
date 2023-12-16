@@ -120,11 +120,11 @@ function createPostHTML(post) {
   // Format "Ends At" timestamp
   const formattedDeadlineDate = new Date(post.endsAt).toLocaleDateString(
     "en-us",
-    { month: "short", day: "numeric" }
+    { month: "short", day: "numeric", timeZone: "UTC" }
   );
   const formattedDeadlineTime = new Date(post.endsAt).toLocaleTimeString(
     "en-GB",
-    { hour: "2-digit", minute: "2-digit" }
+    { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }
   );
   const cardendsAt = document.createElement("p");
   cardendsAt.innerText = `Ends At: ${formattedDeadlineDate}, ${formattedDeadlineTime}`;

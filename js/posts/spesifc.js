@@ -122,6 +122,7 @@ async function main() {
           // Append carousel item to carousel inner
           carouselInnerElement.appendChild(carouselItem);
         }
+        const currentBidElement = document.getElementById("currentBid");
 
         const sellerElement = document.getElementById("seller");
         const sellerAvatarElement = document.getElementById(
@@ -132,6 +133,17 @@ async function main() {
           document.getElementById("auctionDescription");
         const auctionCreatedElement = document.getElementById("auctionCreated");
         const auctionEndsAtElement = document.getElementById("auctionEndsAt");
+
+        // Assuming matchingListing.bids is an array of bid objects
+        const latestBid = matchingListing.bids[matchingListing.bids.length - 1];
+
+        // Check if there is at least one bid before updating the HTML
+        if (latestBid) {
+          currentBidElement.innerHTML = `Current Bid: ${latestBid.amount}`;
+        } else {
+          // Handle the case when there are no bids
+          currentBidElement.innerHTML = "No bids yet";
+        }
 
         sellerElement.innerHTML = `Seller: ${matchingListing.seller.name}`;
         sellerAvatarElement.style.backgroundImage = `url(${matchingListing.seller.avatar})`;
@@ -196,14 +208,15 @@ async function handleBidSubmission(itemID) {
       }),
     };
 
+    // Perform the bid update
     const response = await fetch(bidUpdateUrl, postData);
     const json = await response.json();
 
-    // Log the response for debugging
-    console.log(json);
-
     // Optionally, you can update the UI or show a success message
     alert("Bid placed successfully!");
+
+    // After placing the bid, re-fetch and update the current bid
+    await main();
   } catch (error) {
     console.error("Error handling bid submission:", error);
     alert("Error placing bid. Please try again.");
