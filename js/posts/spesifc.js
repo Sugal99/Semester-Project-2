@@ -153,4 +153,61 @@ async function main() {
   }
 }
 
-main();
+document.addEventListener("DOMContentLoaded", () => {
+  // Add an event listener to the "Bid" button
+  const bidButton = document.querySelector(".btn.btn-primary");
+  bidButton.addEventListener("click", () => {
+    const bidInput = document.querySelector(".form-control");
+    const bidAmount = bidInput.value;
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const itemID = urlParams.get("id");
+
+    console.log("Item ID:", itemID); // Log itemID to check if it's obtained
+
+    handleBidSubmission(itemID);
+  });
+});
+
+async function handleBidSubmission(itemID) {
+  try {
+    const bidInput = document.querySelector(".form-control");
+    const bidAmount = bidInput.value;
+
+    // Check if bid amount is valid (you may want to add additional validation)
+    if (!bidAmount || isNaN(bidAmount)) {
+      alert("Please enter a valid bid amount");
+      return;
+    }
+
+    // Send a POST request to update the bid
+    const bidUpdateUrl = `${API_BASE_URL}/auction/listings/${itemID}/bids`;
+    const token = localStorage.getItem("accessToken");
+
+    const postData = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        amount: parseFloat(bidAmount), // Convert to a number
+      }),
+    };
+
+    const response = await fetch(bidUpdateUrl, postData);
+    const json = await response.json();
+
+    // Log the response for debugging
+    console.log(json);
+
+    // Optionally, you can update the UI or show a success message
+    alert("Bid placed successfully!");
+  } catch (error) {
+    console.error("Error handling bid submission:", error);
+    alert("Error placing bid. Please try again.");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", main);

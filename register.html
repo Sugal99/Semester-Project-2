@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./dist/css/register.css" />
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="body d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img
+                src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
+                class="logo"
+              />
+            </a>
+  
+            <button
+              class="navbar-toggler "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link text-dark btn-sm btn btn-secondary" href="#">Sign Up</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <main>
+      <div class="container ">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-11 col-sm-7 col-md-8 col-lg-3">
+            <img
+              src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
+              alt="loginLogo"
+              class="logo w-100 mt-5"
+            />
+          </div>
+        </div>
+      </div>
+      <form action="" id="formID" class="was-validated">
+        <div class="container col-lg-4">
+          <label for="name" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Username"
+            minlength="5"
+            name="name"
+            required
+          />
+          <div class="valid-feedback">Email/Username is Valid.</div>
+          <div class="invalid-feedback text-secondary">
+            Username/Email must have a minimum length of 5 characters
+          </div>
+        </div>
+
+        <div class="container col-lg-4">
+          <label for="email" class="form-label"></label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Email or username"
+            minlength="5"
+            name="email"
+            required
+          />
+          <div class="valid-feedback">Email is Valid.</div>
+          <div class="invalid-feedback text-secondary"">
+            Username/Email must have a minimum length of 5 characters
+          </div>
+        </div>
+
+        <div class="container col-lg-4">
+          <label for="password" class="form-label"></label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            minlength="8"
+            name="password"
+            required
+          />
+          <div class="valid-feedback">Password is valid!</div>
+          <div class="invalid-feedback text-secondary">
+            Password must have a minimum length of 8 characters.
+          </div>
+        </div>
+
+        <div
+          class="container d-flex align-items-center justify-content-center col-lg-4 col-xxl-2"
+        >
+          <button
+            type="submit"
+            class="w-75 rounded-5 btn btn-primary btn-lg mt-3 rounded-pill"
+            value="Register"
+          >
+            Register
+          </button>
+        </div>
+
+        <div>
+          <a href="index.html">
+            <span
+              class="loginLink d-flex align-items-center justify-content-center m-3 text-secondary "
+              >Log in</span
+            >
+          </a>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
