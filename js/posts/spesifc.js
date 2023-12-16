@@ -139,7 +139,7 @@ async function main() {
 
         // Check if there is at least one bid before updating the HTML
         if (latestBid) {
-          currentBidElement.innerHTML = `Current Bid: ${latestBid.amount}`;
+          currentBidElement.innerHTML = `Current Bid: ${latestBid.amount} kr`;
         } else {
           // Handle the case when there are no bids
           currentBidElement.innerHTML = "No bids yet";
@@ -154,6 +154,20 @@ async function main() {
         auctionDescElement.innerHTML = `"<i>${matchingListing.description}</i>"`;
         auctionCreatedElement.innerHTML = ` Date added:  ${formattedCreatedDate}, ${formattedCreatedTime}`;
         auctionEndsAtElement.innerHTML = ` Date added:  ${formattedDeadlineDate}, ${formattedDeadlineTime}`;
+
+        // Assuming you have a container element for the registration text
+        const registrationContainer =
+          document.getElementById("registrationText");
+
+        // Check if the user is logged in (you can modify this condition based on your authentication logic)
+        const isLoggedIn = localStorage.getItem("accessToken") !== null;
+
+        // Show or hide the registration text based on the user's login status
+        if (!isLoggedIn) {
+          registrationContainer.style.display = "block"; // Show the text
+        } else {
+          registrationContainer.style.display = "none"; // Hide the text
+        }
       } else {
         console.error("No images found in the auction listing");
       }
