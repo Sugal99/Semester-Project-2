@@ -9715,8 +9715,12 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+html {
+  height: 131%;
+}
+
 body {
-  background-image: url("/images/landingPageGradient.png");
+  background-image: url("/images/Image 1.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

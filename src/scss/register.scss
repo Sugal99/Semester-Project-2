@@ -1,12 +1,13 @@
 @import "variables"; /* /src/scss/_variables.scss */
 @import "../../node_modules/bootstrap/scss/bootstrap";
-
+html {
+  height: 131%;
+}
 body {
-  background-image: url("/images/landingPageGradient.png");
+  background-image: url("/images/Image\ 1.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .logo {
   width: 13rem;
   margin-left: -1.5rem;
