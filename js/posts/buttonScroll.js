@@ -1,5 +1,10 @@
-// Function to handle smooth scrolling to main content
+// Function to scroll to the main content with a smooth effect
 function scrollToMainContent() {
-  const mainContent = document.querySelector("main");
-  mainContent.scrollIntoView({ behavior: "smooth" });
+  const mainContent = document.getElementById("mainContent");
+  if (mainContent) {
+    window.scrollTo({
+      top: mainContent.offsetTop,
+      behavior: "smooth",
+    });
+  }
 }

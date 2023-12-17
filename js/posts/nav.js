@@ -1,3 +1,12 @@
+function logout() {
+  // Clear user-related data from localStorage
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("credits");
+  localStorage.removeItem("email");
+  localStorage.removeItem("avatar");
+  localStorage.removeItem("user");
+}
+
 // Function to update the navigation bar based on login status
 function updateNavbar() {
   const navItemsContainer = document.getElementById("navItems");
@@ -12,8 +21,14 @@ function updateNavbar() {
     // If logged in, show logout link
     navItemsContainer.innerHTML += `
         <li class="nav-item">
-          <a class="nav-link text-secondary" id="logoutButton" href="#">Logout</a>
-        </li>
+          <a class="nav-link text-secondary" id="logoutButton" href="/login.html">Logout</a>
+          <a class="nav-link text-secondary" id="About" href="/profile.html">Profile</a>
+          <a class="nav-link text-secondary" id="About" href="/about.html">About</a>
+          <a class="nav-link text-secondary" id="About" href="/contact.html">Contact</a>
+
+
+
+          </li>
       `;
     // Add event listener for logout
     document.getElementById("logoutButton").addEventListener("click", logout);

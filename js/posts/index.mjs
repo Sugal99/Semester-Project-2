@@ -1,3 +1,5 @@
+let filteredData = []; // Declare filteredData at a higher scope
+
 const API_BASE_URL = "https://api.noroff.dev/api/v1";
 
 async function fetchWithToken(url) {
@@ -154,3 +156,4 @@ async function main() {
 }
 
 main();
+filterListings("recent"); // or filterListings("oldest");

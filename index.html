@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="./dist/css/styles.css" />
@@ -8,184 +9,170 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-   
-  </head>
-  <body class="min-vh-100 d-flex flex-column">
+</head>
+
+<body class="min-vh-100 d-flex flex-column">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid text-center">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
-              class="logo"
-            />
-          </a>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavbar"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navItems">
-              <li class="nav-item">
-                <a class="nav-link text-secondary" href="/profile.html">Login</a>
-              </li>
-              <li class="nav-item ms-1">
-                <a class="nav-link text-secondary" href="/register.html">Sign Up
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid text-center">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/images/websiteLogo.png" class="logo" />
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          </div>
-        </div>
-      </nav>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navItems">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/profile.html">Login</a>
+                        </li>
+                        <li class="nav-item ms-1">
+                            <a class="nav-link text-secondary" href="/register.html">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" id="logoutButton" href="/login.html">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" id="About" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!---LANDINGPAGE--->
-    <section class="flex-grow-1 container-fluid ">
-      <section class="landingPageText text-secondary text-center">
-        <h1>Elevate Your Collection, One Bid at a Time</h1>
-        <hr class="my-1" />
-        <p class="landingPageBodyText text-secondary text-center text-md fs-3">
-          The best Auction House to ever exist!
-        </p>
-      </section>
-      <div class="row">
-        <div class="container landingPageImage col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-center">
-          <img
-              src="/images/—Pngtree—bidding auction and placard competition_6696447.png"
-              class="w-75 " 
-              alt="Item Image"
-          />
-      </div>
-      
-        </div>
+    <section class="flex-grow-1 container-fluid">
+        <section class="landingPageText text-secondary text-center">
+            <h1>Elevate Your Collection, One Bid at a Time</h1>
+            <hr class="my-1" />
+            <p class="landingPageBodyText text-secondary text-center text-md fs-3">
+                The best Auction House to ever exist!
+            </p>
         </section>
-      </section>
+        <div class="row">
+            <div
+                class="container landingPageImage col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-center">
+                <img
+                    src="/images/—Pngtree—bidding auction and placard competition_6696447.png"
+                    class="w-75 "
+                    alt="Item Image"
+                />
+            </div>
 
-      <section
- class="CTA me-3 d-flex align-items-center justify-content-center mt-2"
-      >
-      <button type="button" class="btn CTA-btn btn-primary" onclick="scrollToMainContent()">View Listings</button>
-      </section>
-     
+        </div>
+    </section>
+
+    <section class="CTA me-3 d-flex align-items-center justify-content-center mt-2">
+        <button type="button" id="viewListingsButton" class="btn CTA-btn btn-primary"
+            onclick="scrollToMainContent()">View Listings</button>
+    </section>
     </section>
 
     <!---MAIN CONTENT--->
-    <main class="h-100 d-inline-block mt-5 pt-5">
-      <hr class="my-1 text-secondary mt-5" />
-         <section class="container">
-          <div class="row mt-5 me-5">
-            <div class="col-2">
-              <!-- Dropdown on the left -->
-            <form id="searchForm">
-              <div class="dropdown ms-2">
-                <button class="btn p-0 btn-secondary dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </button>
-                <div class="dropdown-menu" id="dropdownMenuButton" aria-labelledby="dropdownMenuButton">
-                  <!-- Dropdown items go here -->
-                  <a class="dropdown-item" href="#"  onclick="filterListings('oldest')">Oldest Listings</a>
-                  <a class="dropdown-item" href="#"  onclick="filterListings('recent')">recent Listings</a>
+    <main class="h-100 d-inline-block mt-5 pt-5 " id="mainContent">
+        <hr class="my-1 text-secondary mt-5" />
+        <section class="container">
+            <div class="row mt-5 me-5">
+                <div class="col-2">
+                    <!-- Dropdown on the left -->
+                    <form id="searchForm">
+                        <div class="dropdown ms-2">
+                            <button class="btn p-0 btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button>
+                            <div class="dropdown-menu" id="dropdownMenuButton" aria-labelledby="dropdownMenuButton">
+                                <!-- Dropdown items go here -->
+                                <a class="dropdown-item" href="#" onclick="filterListings('oldest')">Oldest Listings</a>
+                                <a class="dropdown-item" href="#" onclick="filterListings('recent')">recent Listings</a>
 
+                            </div>
+                        </div>
                 </div>
-              </div>
-            </div>
-            
-            <div class="col-8 d-flex align-items-center justify-content-center">
-              <!-- Title in the middle -->
-              <h2 class="ms-5 ps-4 text-info">Listings</h2>
-            </div>
-            <div class="col-2 text-end   ">
-              <!-- Search button on the right -->
-              <input type="text" class="form-control p-0 ms-n1" aria-label="Search" id="searchInput"  placeholder="Search..."/>
-            </div>
-          </div>
-            </div>
-          </div>
-          <div class="auctionContainer row row-cols-1 row-cols-md-3 mx-0"></div>
 
-        </form>
-          <!--- <section
-            class="card bg-info d-flex align-items-center justify-content-center"
-            style="width: 18rem"
-          >
-            <img
-              src="/images/f26bde818b50d735f7d136abdc5521f9.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <section class="card-body ms-1">
-              <h5 class="card-title">Red Jacket</h5>
-              <p class="card-text">
-                Jacket for sale Jacket for sale Jacket for sale.
-              </p>
-              <hr />
-              <p class="card-text">Highest Bid: 100kr</p>
-              <p class="card-text">Created: Nov 21, 21:00</p>
-              <p class="card-text">Ends at : Nov 29, 22:00</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </section>
-          </section>
-        </div>
-      </section> -->
-        </div>
+                <div class="col-8 d-flex align-items-center justify-content-center">
+                    <!-- Title in the middle -->
+                    <h2 class="ms-5 ps-4 text-info">Listings</h2>
+                </div>
+                <div class="col-2 text-end ">
+                    <!-- Search button on the right -->
+                    <input type="text" class="form-control p-0 ms-n1" aria-label="Search" id="searchInput"
+                        placeholder="Search..." />
+                </div>
+                </form>
+            </div>
+            <div class="auctionContainer row row-cols-1 row-cols-md-3 mx-0"></div>
+
+            <!--- <section
+        class="card bg-info d-flex align-items-center justify-content-center"
+        style="width: 18rem"
+      >
+        <img
+          src="/images/f26bde818b50d735f7d136abdc5521f9.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <section class="card-body ms-1">
+          <h5 class="card-title">Red Jacket</h5>
+          <p class="card-text">
+            Jacket for sale Jacket for sale Jacket for sale.
+          </p>
+          <hr />
+          <p class="card-text">Highest Bid: 100kr</p>
+          <p class="card-text">Created: Nov 21, 21:00</p>
+          <p class="card-text">Ends at : Nov 29, 22:00</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </section>
       </section>
+    </div>
+  </section> -->
+        </div>
+        </section>
     </main>
     <footer class="container-fluid text-light py-4 text-center bg-warning ">
-  
-      <div class="row">
-        <!-- Built with section -->
-        <div class="col-md-6">
-          <h6 class="text-uppercase">Built with</h6>
-          <hr>
-          <p>HTML</p>
-          <p>Bootstrap</p>
-          <p>Sass</p>
-          <p>JavaScript</p>
-        </div>
-  
-        <!-- Company section -->
-        <div class="col-md-6 ">
-          <h6 class="text-uppercase">Company</h6>
-          <hr>
-          <p>HTML</p>
-          <p>Bootstrap</p>
-          <p>Sass</p>
-          <p>JavaScript</p>
-        </div>
-      </div>
-  
-      <!-- Logo section -->
-      <div class="row ">
-        <div class="col text-center ">
-          <img
-          src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
-          class="logo "
-        />
-      </a>
 
+        <div class="row">
+            <!-- Built with section -->
+            <div class="col-md-6">
+                <h6 class="text-uppercase">Built with</h6>
+                <hr>
+                <p>HTML</p>
+                <p>Bootstrap</p>
+                <p>Sass</p>
+                <p>JavaScript</p>
+            </div>
+
+            <!-- Company section -->
+            <div class="col-md-6 ">
+                <h6 class="text-uppercase">Company</h6>
+                <hr>
+                <p>HTML</p>
+                <p>Bootstrap</p>
+                <p>Sass</p>
+                <p>JavaScript</p>
+            </div>
         </div>
-      </div>
+
+        <!-- Logo section -->
+        <div class="row ">
+            <div class="col text-center ">
+                <img src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png" class="logo " />
+            </a>
+
+            </div>
+        </div>
     </footer>
-  
+
     <script type="module" src="/js/posts/index.mjs"></script>
 
     <script src="/js/posts/filter.js"></script>
     <script type="module" src="/js/posts/search.mjs"></script>
-    <script type="module" src="/js/posts/nav.js"></script>
+    <script src="/js/posts/nav.js"></script>
+    <script src="/js/posts/buttonScroll.js"></script>
 
-
-  
-    
-
-
-
-  </body>
-</html>
+    </body>
+    </html>

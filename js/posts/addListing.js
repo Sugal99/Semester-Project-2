@@ -61,9 +61,6 @@ async function addListingButtonClick() {
     const json = await response.json();
     console.log(json);
 
-    // Add your logic to handle the response as needed
-
-    // Close the modal after successfully adding the listing
     $("#addListingModal").modal("hide");
   } catch (error) {
     console.log(error);
