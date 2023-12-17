@@ -118,7 +118,7 @@
           <h5 class="fs-4">Place Bid</h5>
           <div class="d-flex" id="bid-form">
             <input
-              type="text"
+              type="number"
               class="form-control w-50 mr-2"
               placeholder="Your Bid"
               id="bid-amount"
@@ -127,18 +127,15 @@
           </div>
         </div>
         <hr />
+        <div id="currentBid"></div>
 
         <div id="error-message"></div>
         <!-- Bid History -->
         <div class="mt-4">
-          <h6 class="fs-5">Bid History:</h6>
-          <strong class="fs-6">James</strong>
-          <p class="fs-6">Date: Sep 3</p>
-          <p class="fs-6">Amount: 26,00kr</p>
+          <h6 class="fs-5" >Bid History:</h6>
 
-          <strong class="fs-6 mt-2">John</strong>
-          <p class="fs-6">Date: Sep 5</p>
-          <p class="fs-6">Amount: 30,00kr</p>
+          <div id="bids-container"></div>
+        </div>
         </div>
       </div>
     </main>

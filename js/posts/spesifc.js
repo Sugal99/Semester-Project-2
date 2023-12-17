@@ -143,6 +143,42 @@ async function main() {
         auctionCreatedElement.innerHTML = ` Date added: ${formattedCreatedDate}, ${formattedCreatedTime}`;
         auctionEndsAtElement.innerHTML = ` Date added: ${formattedDeadlineDate}, ${formattedDeadlineTime}`;
 
+        currentBidElement = document.getElementById("currentBid");
+        const bidderName = document.getElementById("bids-container");
+        // Clear existing content in the bidderName container
+        bidderName.innerHTML = "";
+        // Check if bids are present in matchingListing
+        if (matchingListing.bids && matchingListing.bids.length > 0) {
+          // Iterate through all bids
+          for (const bid of matchingListing.bids) {
+            const formattedBidDate = new Date(bid.created).toLocaleDateString(
+              "en-us",
+              {
+                month: "short",
+                day: "numeric",
+                timeZone: "UTC",
+              }
+            );
+
+            bidderName.innerHTML += `
+              <div class="row mb-3 rounded bg-danger py-1">
+                <div class="col">
+                  <p>Bidder Name: ${bid.bidderName}</p>
+                  <p>Date: ${formattedBidDate}</p>
+                  <p>Amount: ${bid.amount}</p>
+                </div>
+              </div>
+            `;
+          }
+        } else {
+          bidderName.innerHTML += `
+            <div class="row mb-3 ">
+              <div class="col">
+              </div>
+            </div>
+          `;
+        }
+
         // Assuming you have a container element for the registration text
         const registrationContainer =
           document.getElementById("registrationText");
@@ -213,11 +249,9 @@ async function sendBidToAPI(url, method) {
       const bidForm = document.querySelector("#bid-form");
       const bidAmount = document.querySelector("#bid-amount");
       bidForm.innerHTML = `
-      <h4>${bidAmount.value} Credits spent on this item:
-        <button type="button" class=" bid-button btn btn bg-primary ms-2 text-white" id="bid-higher-button" onclick="window.location.reload()"><strong>Higher?</strong></button></h4>
-      
-      
-        `;
+        <h4>${bidAmount.value} Credits spent on this item:
+          <button type="button" class="bid-button btn btn bg-primary ms-2 text-white" id="bid-higher-button" onclick="window.location.reload()"><strong>Higher?</strong></button></h4>
+      `;
     } else {
       const errorMessage = document.querySelector("#error-message");
 
