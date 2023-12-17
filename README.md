@@ -30,7 +30,7 @@ Noroff API
  An unregistered user may search through Listings
 
 # Links that were Required
-Gantt Chartt:
+* Gantt Chartt:
 https://prnt.sc/4cx5TMsExAZ3
 
 Design Prototype and Style Guide are both in Figma 
