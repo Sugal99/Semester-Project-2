@@ -88,4 +88,6 @@ function updateProfileHTML(profileData, savedAvatarUrl) {
 }
 
 // Call the main function to start the process
+console.log(localStorage);
+
 main();
