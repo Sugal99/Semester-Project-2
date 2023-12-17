@@ -13,13 +13,9 @@ async function fetchWithToken(url) {
       },
     };
     const response = await fetch(url, getData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     return json;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 export function createPostHTML(post) {
   const container = document.querySelector(".auctionContainer");
@@ -44,7 +40,6 @@ export function createPostHTML(post) {
 
     // Add error handling for the image
     img.addEventListener("error", function (event) {
-      // Prevent the default error behavior (logging to the console)
       event.preventDefault();
 
       // Set a placeholder image source if the image fails to load
@@ -150,9 +145,7 @@ async function main() {
     const url = `${API_BASE_URL}/auction/listings`;
     const json = await fetchWithToken(url);
     createPostsHTML(json);
-  } catch (error) {
-    console.error("Error in main function:", error);
-  }
+  } catch (error) {}
 }
 
 main();

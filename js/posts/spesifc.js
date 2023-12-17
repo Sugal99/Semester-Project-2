@@ -11,13 +11,9 @@ async function fetchWithToken(url) {
       },
     };
     const response = await fetch(url, getData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     return json;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 async function main() {
@@ -28,7 +24,6 @@ async function main() {
     const itemID = urlParams.get("id");
 
     if (!itemID) {
-      console.error("Item ID not found in the URL");
       return;
     }
 
@@ -43,13 +38,11 @@ async function main() {
 
     // Combine the results if needed
     const combinedListings = [...recentListings, ...oldListings];
-    console.log("Combined Listings:", combinedListings);
 
     // Find the corresponding listing in the combined data based on the itemID
     const matchingListing = combinedListings.find(
       (listing) => listing.id === itemID
     );
-    console.log(matchingListing);
 
     const formattedCreatedDate = new Date(
       matchingListing.created
@@ -193,14 +186,10 @@ async function main() {
           registrationContainer.style.display = "none"; // Hide the text
         }
       } else {
-        console.error("No images found in the auction listing");
       }
     } else {
-      console.error("Listing not found in the combined data");
     }
-  } catch (error) {
-    console.error("Error in main function:", error);
-  }
+  } catch (error) {}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -213,8 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const itemID = urlParams.get("id");
-
-    console.log("Item ID:", itemID); // Log itemID to check if it's obtained
 
     // Construct the bid update URL
     const bidUpdateUrl = `${API_BASE_URL}/auction/listings/${itemID}/bids`;
@@ -260,12 +247,9 @@ async function sendBidToAPI(url, method) {
         errorMessage.style.display = "block";
         errorMessage.innerText = `${json.errors[0].message}`;
       } else {
-        console.error("Error message element not found.");
       }
     }
-  } catch (error) {
-    console.error("Error sending bid to API:", error);
-  }
+  } catch (error) {}
 }
 
 document.addEventListener("DOMContentLoaded", main);

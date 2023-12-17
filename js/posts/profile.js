@@ -13,11 +13,8 @@ async function getProfileInfo(url) {
 
     const response = await fetch(url, getData);
     const json = await response.json();
-    console.log("API Response:", json);
     return json;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 async function main() {
@@ -25,7 +22,6 @@ async function main() {
     const profileName = localStorage.getItem("user");
 
     if (!profileName) {
-      console.error("Profile name not found in localStorage");
       return;
     }
 
@@ -35,9 +31,7 @@ async function main() {
     const savedAvatarUrl = localStorage.getItem("avatar");
 
     updateProfileHTML(profileData, savedAvatarUrl);
-  } catch (error) {
-    console.error("Error in main function:", error);
-  }
+  } catch (error) {}
 }
 
 document

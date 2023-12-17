@@ -12,13 +12,9 @@ async function fetchWithToken(url) {
       },
     };
     const response = await fetch(url, getData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     return json;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 function createPostHTML(post) {
   const container = document.querySelector(".auctionContainer");
@@ -211,9 +207,7 @@ async function filterListings(criteria) {
     }
 
     displayListings(filteredListings);
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 }
 
 // Call the filterListings function with the desired criteria

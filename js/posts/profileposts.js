@@ -9,13 +9,9 @@ async function fetchWithToken(url) {
       },
     };
     const response = await fetch(url, getData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     return json;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 /**
@@ -52,7 +48,6 @@ async function profileHandler() {
   const user = localStorage.getItem("user");
 
   if (!user) {
-    console.error("User identity not found in local storage.");
     return;
   }
 
@@ -63,7 +58,6 @@ async function profileHandler() {
   if (json) {
     createPostsHTML(json);
   } else {
-    console.error("Error fetching user posts.");
   }
 }
 
@@ -90,7 +84,6 @@ function createPostHTML(post) {
 
     // Add error handling for the image
     img.addEventListener("error", function (event) {
-      // Prevent the default error behavior (logging to the console)
       event.preventDefault();
 
       // Set a placeholder image source if the image fails to load
