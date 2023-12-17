@@ -14,7 +14,7 @@
   <body class="min-vh-100 d-flex flex-column">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid text-center">
+        <div class="container text-center py-5">
           <a class="navbar-brand" href="index.html">
             <img
               src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
@@ -37,7 +37,8 @@
                 <a class="nav-link text-secondary" href="/login.html">Login</a>
               </li>
               <li class="nav-item ms-1">
-                <a class="nav-link text-secondary" href="/register.html">Sign Up
+                <a class="nav-link text-secondary" href="/register.html"
+                  >Sign Up
                 </a>
               </li>
               <li class="nav-item">
@@ -47,146 +48,180 @@
               </li>
             </ul>
           </div>
-          </div>
         </div>
       </nav>
     </header>
-    <main class="h-100 d-inline-block mt-2">
+    <main class="h-100 d-inline-block">
       <div class="container text-secondary">
         <!-- Mini Avatar and Seller Name -->
-        <div class="d-flex align-items-center mb-3">
-          <div id="mini-avatar-placeholder" class="img-thumbnail rounded-circle" style="width: 40px; height: 40px; background-color: #ccc;"></div>
+        <div
+          class="d-flex align-items-center mb-3 d-flex align-items-center justify-content-center"
+        >
+          <div
+            id="mini-avatar-placeholder"
+            class="img-thumbnail rounded-circle"
+            style="width: 40px; height: 40px; background-color: #ccc"
+          ></div>
           <div class="ml-2 ms-1 fs-5" id="seller">Loading...</div>
         </div>
 
-        <!-- Carousel -->
-<!-- Updated Carousel HTML -->
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-  <!-- Indicators/dots -->
-  <div class="carousel-indicators" id="carouselIndicators"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div
+                id="demo"
+                class="carousel slide align-items-center"
+                data-bs-ride="carousel"
+              >
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators" id="carouselIndicators"></div>
 
- <!-- The slideshow/carousel -->
- <div class="carousel-inner text-center rounded" id="carouselInner">
-  <!-- Carousel items will be dynamically added here -->
-</div>
+                <!-- The slideshow/carousel -->
+                <div
+                  class="carousel-inner text-center rounded"
+                  id="carouselInner"
+                >
+                  <!-- Carousel items will be dynamically added here -->
+                </div>
 
-
-  <!-- Left and right controls/icons -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-        
-        <!-- Main Product Image -->
-        <div class="text-center" >
-          
-        </div>
-
-        <!-- Product Details -->
-        <div class="mt-4">
-          <!-- Product Title -->
-          <h2 class="fs-5"id="auctionTitle">Loading...</h2>
-
-          <!-- Product Description -->
-          <p class="fs-7" id="auctionDescription">
-            Loading...
-          </p>
-
-               <!-- Product Dates -->
-          <p class="fs-7" id="auctionCreated">
-            Loading...
-          </p>
-
-          <p class="fs-7" id="auctionEndsAt"></p>
-    
-            </p>
-  
-
-          <!-- Current Bid -->
-          <hr />
-
-          <!-- Registration Information -->
-          <div id=registrationText>
-          <h4 class="fs-5" >Registration to place bid</h4>
-          <p class="fs-7">
-            In order to place a bid, you will have to register an account. You
-            can do so by clicking <a href="#">here</a>.
-          </p>
-        </div>
-          <!-- Place Bid Form -->
-          <h5 class="fs-4">Place Bid</h5>
-          <div class="d-flex" id="bid-form">
-            <input
-              type="number"
-              class="form-control w-50 mr-2"
-              placeholder="Your Bid"
-              id="bid-amount"
-            />
-            <button type="button" id="bid-button"class=" btn btn-primary ms-2">Bid</button>
+                <!-- Left and right controls/icons -->
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#demo"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#demo"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <hr />
-        <div id="currentBid"></div>
 
-        <div id="error-message"></div>
-        <!-- Bid History -->
-        <div class="mt-4">
-          <h6 class="fs-5" >Bid History:</h6>
+        <!-- Main Product Image -->
+        <div class="text-center"></div>
 
-          <div id="bids-container"></div>
-          
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <!-- Product Details -->
+              <div class="mt-4">
+                <!-- Product Title -->
+                <h2 class="fs-5" id="auctionTitle">Loading...</h2>
 
-    
+                <!-- Product Description -->
+                <p class="fs-7" id="auctionDescription">Loading...</p>
+
+                <!-- Product Dates -->
+                <p class="fs-7" id="auctionCreated">Loading...</p>
+
+                <p class="fs-7" id="auctionEndsAt"></p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <hr />
+
+        <!-- Current Bid -->
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <!-- Registration Information -->
+              <div id="registrationText">
+                <h4 class="fs-5">Registration to place bid</h4>
+                <p class="fs-7">
+                  In order to place a bid, you will have to register an account.
+                  You can do so by clicking <a href="#">here</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <!-- Place Bid Form -->
+              <h5 class="fs-4">Place Bid</h5>
+              <div class="d-flex" id="bid-form">
+                <input
+                  type="number"
+                  class="form-control w-50 mr-2"
+                  placeholder="Your Bid"
+                  id="bid-amount"
+                />
+                <button
+                  type="button"
+                  id="bid-button"
+                  class="btn btn-primary ms-2"
+                >
+                  Bid
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-4" />
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div id="error-message"></div>
+              <div class="mt-4">
+                <h6 class="fs-5">Bid History:</h6>
+                <div id="bids-container"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
- <footer class="container-fluid text-light py-4 text-center bg-warning  ">
-  
+
+    <footer class="container-fluid text-light py-4 text-center bg-warning">
       <div class="row">
         <!-- Built with section -->
         <div class="col-md-6">
           <h6 class="text-uppercase">Built with</h6>
-          <hr>
+          <hr />
           <p>HTML</p>
           <p>Bootstrap</p>
           <p>Sass</p>
           <p>JavaScript</p>
         </div>
-  
+
         <!-- Company section -->
-        <div class="col-md-6 ">
+        <div class="col-md-6">
           <h6 class="text-uppercase">Company</h6>
-          <hr>
+          <hr />
           <p>HTML</p>
           <p>Bootstrap</p>
           <p>Sass</p>
           <p>JavaScript</p>
         </div>
       </div>
-  
-      <!-- Logo section -->
-      <div class="row ">
-        <div class="col text-center ">
-          <img
-          src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
-          class="logo "
-        />
-      </a>
 
+      <!-- Logo section -->
+      <div class="row">
+        <div class="col text-center">
+          <img
+            src="/images/AuctionBid Logo - Twitter Header Photo - 1500x500.png"
+            class="logo"
+          />
         </div>
       </div>
     </footer>
+
     <script src="/js/posts/spesifc.js"></script>
     <script src="/js/posts/navBarCredits.js"></script>
-
-
-    
-    
-
-
   </body>
 </html>

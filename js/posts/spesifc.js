@@ -104,7 +104,7 @@ async function main() {
           // Create image element
           const imageElement = document.createElement("img");
           imageElement.src = imageUrl;
-          imageElement.className = "d-block w-100";
+          imageElement.className = "d-block w-100 ";
 
           // Append image to carousel item
           carouselItem.appendChild(imageElement);

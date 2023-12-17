@@ -8,10 +8,11 @@ async function getProfile(url) {
         Authorization: `Bearer ${token}`,
       },
     };
+
+    // Log the API response
     const response = await fetch(url, getData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
+    console.log("API Response:", json);
     return json;
   } catch (error) {
     console.log(error);
@@ -45,8 +46,10 @@ function updateProfileHTML(profileData) {
 
   // Update the HTML content with the profile information
   userCreditsContainer.innerHTML = `
-      <p>Credits: ${profileData.credits}</p>
-    `;
+        <p>Credits: ${profileData.credits}</p>
+      `;
+  // Store credits in localStorage
+  localStorage.setItem("credits", profileData.credits);
 }
 
 // Call the main function to start the process
