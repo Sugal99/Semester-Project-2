@@ -1,53 +1,55 @@
 # Semester-Project-2
 
-Semester Project 2
+![SemesterProjectImg](https://github.com/Sugal99/Semester-Project-2/assets/56642911/5ac8f1bf-ee8d-43c1-857b-ea856627aada)
 
-# Summary
-An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.
 
-When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
-The project was
-# built with
-* Figma
-* HTML
-* Bootstrap
-* SASS
-* Javascript
-* VS Code
-* Noroff API
 
-# User stories
- * The client has specified the following requirements in the form of User Stories:
- * A user with a stud.noroff.no email may register
- * A registered user may login
- * A registered user may logout
- * A registered user may update their avatar
- * A registered user may view their total credit
- * A registered user may create a Listing with a title, deadline date, media gallery and description
- * A registered user may add a Bid to another user’s Listing
- * A registered user may view Bids made on a Listing
- A registered user may use credit to make a Bid on another user’s Listing
- * An unregistered user may search through Listings
+An auction site where one can bid for items or put out items for bidding.
 
-# Links that were Required
-* Gantt Chartt:
-https://prnt.sc/4cx5TMsExAZ3
+## Description
+As mention earlier, this is an An auction site where you as a registerd user, can not only view, but also bid and add your own items for bidding if you wish so. All biddings on this auction site is managed by a so called currency named "credits", and these "credits" are given to new users upon registering an a account. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
 
-* Design Prototype and Style Guide are both in Figma 
-https://www.figma.com/file/yYb6DtNRTPo7rpeXPA4FvY/Untitled?type=design&node-id=0-1&mode=design&t=Mz41rlCuSA8KtzRL-0
-* Kanban Board:
-https://trello.com/invite/b/mHZMlD97/ATTI8463d140987b1e774707a5888d7d80f6CD39DD27/semester-project-2
+## Built With
+* [HTML](https://dev.w3.org/html5/spec-LC/)
+* [Bootstrap](https://getbootstrap.com/)
+* [SASS](https://sass-lang.com/)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  
 
-* Repository:
-https://github.com/Sugal99/Semester-Project-2
-* Hosted Demo
-https://fluffy-lolly-cb9973.netlify.app/login.html
 
-# Instructions
-* npm install: Starts node and installs dependencies
-* npm build: Compiles CSS
-* npm watch: Compiles src/scss/style.scss to dist/css/style.css (SASS watches for changes).
-* Dependencies
-* Bootstrap 5.0.1
-* SASS 1.69.5
-* live-server 1.2.2
+## Getting Started
+1. Clone the repo:
+    ```
+    git clone git@github.com:Sugal99/Semester-Project-2.git
+    ```
+2. Install the dependencies:
+    ```
+    npm install
+    ```
+3. Compiles CSS:
+    ```
+    npm build
+    ```
+3. Compiles src/scss/style.scss to dist/css/style.css (SASS watches for changes).
+    ```
+    npm watch
+   ```
+ ## Running
+ To run the app, run the following commands:
+   ```
+ npm run watch
+   ```
+
+## Contributing
+  If you want to contribue to the project please open a PR! You can do this by going to the original repository on GitHub and open a pull request from your forked repository.
+  Provide a clear description of what your changes do and why they should be merged.
+
+## Contact
+
+If you want to contact me regarding this project, please use the option below:
+
+- My Discord: Sugal Aden – Aug22FT#3482
+- Email: Sugal99_norge@hotmail.com(Prefered)
+
+
+
