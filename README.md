@@ -18,6 +18,8 @@ As mention earlier, this is an An auction site where you as a registerd user, ca
 
 
 ## Getting Started
+
+### Installing
 1. Clone the repo:
     ```
     git clone git@github.com:Sugal99/Semester-Project-2.git
