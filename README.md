@@ -42,6 +42,12 @@ As mention earlier, this is an An auction site where you as a registerd user, ca
  npm run watch
    ```
 
+OR you can login and view the site here:
+```
+Netlify: https://fluffy-lolly-cb9973.netlify.app/login.html
+Email: TestAccount123@noroff.no
+Pass:  Test12345678
+```
 ## Contributing
   If you want to contribue to the project please open a PR! You can do this by going to the original repository on GitHub and open a pull request from your forked repository.
   Provide a clear description of what your changes do and why they should be merged.
