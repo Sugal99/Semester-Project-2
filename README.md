@@ -9,6 +9,8 @@ An auction site where one can bid for items or put out items for bidding.
 ## Description
 As mention earlier, this is an An auction site where you as a registerd user, can not only view, but also bid and add your own items for bidding if you wish so. All biddings on this auction site is managed by a so called currency named "credits", and these "credits" are given to new users upon registering an a account. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
 
+Netlify: https://fluffy-lolly-cb9973.netlify.app/login.html
+
 ## Built With
 * [HTML](https://dev.w3.org/html5/spec-LC/)
 * [Bootstrap](https://getbootstrap.com/)
@@ -42,9 +44,9 @@ As mention earlier, this is an An auction site where you as a registerd user, ca
  npm run watch
    ```
 
-OR you can login and view the site here:
+OR you can login and view the site with this login:
+
 ```
-Netlify: https://fluffy-lolly-cb9973.netlify.app/login.html
 Email: TestAccount123@noroff.no
 Pass:  Test12345678
 ```
